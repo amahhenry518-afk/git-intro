@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Kelly Delicious Meals - Order delicious Nigerian meals and drinks online.">
+
+    <title>Kelly Delicious Meals | Food Delivery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <a href="#" class="logo">
+            Kelly <span>Delicious</span>
+        </a>
+
+        <nav class="nav">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-button" id="cartButton">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-small">WELCOME TO KELLY DELICIOUS MEALS</span>
+
+            <h1>
+                Delicious meals,
+                <span>delivered to you.</span>
+            </h1>
+
+            <p>
+                Enjoy freshly prepared Nigerian meals, tasty drinks
+                and delicious food delivered straight to your doorstep.
+            </p>
+
+            <a href="#menu" class="hero-button">
+                Order Now →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SEARCH ================= -->
+    <section class="search-section">
+
+        <div class="search-box">
+            <span>🔍</span>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search for food or drinks..."
+            >
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+    <main id="menu" class="menu-container">
+
+        <div class="section-heading">
+            <span>OUR MENU</span>
+            <h2>Choose your favourite meal</h2>
+            <p>Freshly prepared and ready to satisfy your hunger.</p>
+        </div>
+
+
+        <!-- CATEGORY BUTTONS -->
+        <div class="categories">
+
+            <button class="category active" data-category="All">
+                All
+            </button>
+
+            <button class="category" data-category="Breakfast">
+                🍳 Breakfast
+            </button>
+
+            <button class="category" data-category="Lunch">
+                🍚 Lunch
+            </button>
+
+            <button class="category" data-category="Dinner">
+                🍲 Dinner
+            </button>
+
+            <button class="category" data-category="Drinks">
+                🥤 Drinks
+            </button>
+
+        </div>
+
+
+        <!-- FOOD CARDS -->
+        <div class="food-grid" id="foodGrid"></div>
+
+    </main>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <span>WHY CHOOSE US?</span>
+
+            <h2>
+                Great food made
+                <strong>just for you.</strong>
+            </h2>
+
+            <p>
+                At Kelly Delicious Meals, we prepare quality meals using
+                fresh ingredients. Whether you need breakfast, lunch,
+                dinner or a refreshing drink, we've got something for you.
+            </p>
+
+            <div class="features">
+
+                <div>
+                    <strong>🍽️</strong>
+                    <h3>Fresh Meals</h3>
+                    <p>Prepared fresh for every order.</p>
+                </div>
+
+                <div>
+                    <strong>🚀</strong>
+                    <h3>Fast Service</h3>
+                    <p>Quick preparation and delivery.</p>
+                </div>
+
+                <div>
+                    <strong>⭐</strong>
+                    <h3>Quality</h3>
+                    <p>Delicious food you can trust.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+    <section class="contact" id="contact">
+
+        <div>
+            <span>CONTACT US</span>
+
+            <h2>Ready to order?</h2>
+
+            <p>
+                Place your order through our website and enjoy
+                your favourite meal.
+            </p>
+        </div>
+
+        <a href="#menu" class="contact-button">
+            View Menu
+        </a>
+
+    </section>
+
+
+    <!-- ================= CART SIDEBAR ================= -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <aside class="cart-sidebar" id="cartSidebar">
+
+        <div class="cart-header">
+
+            <div>
+                <span>Your Order</span>
+                <h2>Shopping Cart</h2>
+            </div>
+
+            <button id="closeCart">×</button>
+
+        </div>
+
+
+        <div class="cart-items" id="cartItems">
+
+            <div class="empty-cart">
+                <div>🛒</div>
+                <h3>Your cart is empty</h3>
+                <p>Add some delicious meals to get started.</p>
+            </div>
+
+        </div>
+
+
+        <div class="cart-footer">
+
+            <div class="subtotal">
+                <span>Subtotal</span>
+                <strong id="cartTotal">₦0</strong>
+            </div>
+
+            <button class="checkout-button" id="checkoutButton">
+                Proceed to Checkout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= CHECKOUT MODAL ================= -->
+    <div class="modal-overlay" id="checkoutModal">
+
+        <div class="checkout-modal">
+
+            <button class="close-modal" id="closeCheckout">
+                ×
+            </button>
+
+            <div class="modal-heading">
+
+                <span>CHECKOUT</span>
+
+                <h2>Complete Your Order</h2>
+
+                <p>
+                    Enter your details and we'll prepare your order.
+                </p>
+
+            </div>
+
+
+            <form id="checkoutForm">
+
+                <div class="form-group">
+
+                    <label for="customerName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="customerName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerPhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="customerPhone"
+                        placeholder="08012345678"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="customerAddress">
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="customerAddress"
+                        placeholder="Enter your delivery address"
+                        rows="3"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="paymentMethod">
+                        Payment Method
+                    </label>
+
+                    <select id="paymentMethod">
+
+                        <option value="Cash on Delivery">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="Bank Transfer">
+                            Bank Transfer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="checkout-summary">
+
+                    <span>Total</span>
+
+                    <strong id="checkoutTotal">
+                        ₦0
+                    </strong>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="place-order-button"
+                >
+                    Place Order
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SUCCESS MESSAGE ================= -->
+    <div class="success-message" id="successMessage">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Order Received!</h2>
+
+        <p id="successText">
+            Thank you for ordering from Kelly Delicious Meals.
+        </p>
+
+        <button id="successButton">
+            Continue Shopping
+        </button>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+
+        <div class="footer-logo">
+            Kelly <span>Delicious Meals</span>
+        </div>
+
+        <p>
+            © 2026 Kelly Delicious Meals. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
