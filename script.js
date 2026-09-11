@@ -1,168 +1,148 @@
-const display = document.querySelector("#display");
-const expression = document.querySelector("#expression");
-const historyList = document.querySelector("#history");
-const memoryState = document.querySelector("#memory-state");
-const themeToggle = document.querySelector("#theme-toggle");
-const currencyButtons = document.querySelectorAll("[data-currency]");
+/* =========================================================
+   PENTECOST GLOBAL SERVICE
+   JAVASCRIPT
+========================================================= */
 
-let currentValue = "0";
-let storedValue = null;
-let pendingOperation = null;
-let waitingForOperand = false;
-let memory = 0;
-let lastExpression = "Ready when you are";
-let currency = "none";
 
-const symbols = { add: "+", subtract: "−", multiply: "×", divide: "÷" };
-const currencySymbols = { USD: "$", EUR: "€", GBP: "£", JPY: "¥" };
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-function updateDisplay() {
-	display.textContent = formatCurrency(currentValue);
-	expression.textContent = lastExpression;
-	memoryState.textContent = formatCurrency(memory);
-}
+const menuBtn = document.getElementById("menuBtn");
 
-function formatCurrency(value) {
-	if (value === "Error" || currency === "none") return value;
-	return `${currencySymbols[currency]}${value}`;
-}
+const navMenu = document.getElementById("navMenu");
 
-function formatNumber(value) {
-	if (!Number.isFinite(value)) return "Error";
-	return Number(value.toPrecision(12)).toString();
-}
 
-function inputNumber(number) {
-	if (currentValue === "Error" || waitingForOperand) {
-		currentValue = number;
-		waitingForOperand = false;
-	} else {
-		currentValue = currentValue === "0" ? number : currentValue + number;
-	}
-	lastExpression = pendingOperation ? `${formatNumber(storedValue)} ${symbols[pendingOperation]}` : "Typing";
-	updateDisplay();
-}
+menuBtn.addEventListener("click", function () {
 
-function inputDecimal() {
-	if (currentValue === "Error" || waitingForOperand) {
-		currentValue = "0.";
-		waitingForOperand = false;
-	} else if (!currentValue.includes(".")) {
-		currentValue += ".";
-	}
-	updateDisplay();
-}
+    navMenu.classList.toggle("active");
 
-function calculate(first, second, operation) {
-	if (operation === "add") return first + second;
-	if (operation === "subtract") return first - second;
-	if (operation === "multiply") return first * second;
-	if (operation === "divide") return second === 0 ? NaN : first / second;
-	return second;
-}
 
-function chooseOperation(operation) {
-	const inputValue = Number(currentValue);
-	if (Number.isNaN(inputValue)) return reset();
-	if (pendingOperation && !waitingForOperand) {
-		const result = calculate(storedValue, inputValue, pendingOperation);
-		storedValue = result;
-		currentValue = formatNumber(result);
-	} else {
-		storedValue = inputValue;
-	}
-	pendingOperation = operation;
-	waitingForOperand = true;
-	lastExpression = `${formatNumber(storedValue)} ${symbols[operation]}`;
-	updateDisplay();
-}
+    if (navMenu.classList.contains("active")) {
 
-function equals() {
-	if (!pendingOperation || storedValue === null) return;
-	const secondValue = Number(currentValue);
-	const firstValue = storedValue;
-	const operation = pendingOperation;
-	const result = calculate(firstValue, secondValue, operation);
-	const resultText = formatNumber(result);
-	lastExpression = `${formatNumber(firstValue)} ${symbols[operation]} ${formatNumber(secondValue)} =`;
-	addHistory(lastExpression, formatCurrency(resultText));
-	currentValue = resultText;
-	storedValue = null;
-	pendingOperation = null;
-	waitingForOperand = true;
-	updateDisplay();
-}
+        menuBtn.innerHTML = "✕";
 
-function reset() {
-	currentValue = "0";
-	storedValue = null;
-	pendingOperation = null;
-	waitingForOperand = false;
-	lastExpression = "Ready when you are";
-	updateDisplay();
-}
+    } else {
 
-function backspace() {
-	if (waitingForOperand || currentValue === "Error") return;
-	currentValue = currentValue.length > 1 ? currentValue.slice(0, -1) : "0";
-	if (currentValue === "-") currentValue = "0";
-	updateDisplay();
-}
+        menuBtn.innerHTML = "☰";
 
-function percent() {
-	if (currentValue === "Error") return;
-	currentValue = formatNumber(Number(currentValue) / 100);
-	updateDisplay();
-}
+    }
 
-function addHistory(calculation, result) {
-	const item = document.createElement("li");
-	item.className = "history-item";
-	item.innerHTML = `<span>${calculation}</span><strong>${result}</strong>`;
-	historyList.prepend(item);
-	while (historyList.children.length > 3) historyList.lastElementChild.remove();
-}
-
-document.querySelectorAll("[data-number]").forEach((button) => {
-	button.addEventListener("click", () => inputNumber(button.dataset.number));
 });
 
-document.querySelectorAll("[data-operation]").forEach((button) => {
-	button.addEventListener("click", () => chooseOperation(button.dataset.operation));
+
+/* Close menu when a navigation link is clicked */
+
+const navLinks =
+    document.querySelectorAll(".nav-menu a");
+
+
+navLinks.forEach(function (link) {
+
+    link.addEventListener("click", function () {
+
+        navMenu.classList.remove("active");
+
+        menuBtn.innerHTML = "☰";
+
+    });
+
 });
 
-document.querySelector('[data-action="decimal"]').addEventListener("click", inputDecimal);
-document.querySelector('[data-action="equals"]').addEventListener("click", equals);
-document.querySelector('[data-action="clear"]').addEventListener("click", reset);
-document.querySelector('[data-action="backspace"]').addEventListener("click", backspace);
-document.querySelector('[data-action="percent"]').addEventListener("click", percent);
-document.querySelector('[data-action="clear-history"]').addEventListener("click", () => { historyList.replaceChildren(); });
 
-currencyButtons.forEach((button) => {
-	button.addEventListener("click", () => {
-		currency = button.dataset.currency;
-		currencyButtons.forEach((option) => option.classList.toggle("is-active", option === button));
-		updateDisplay();
-	});
+/* =========================================================
+   PRODUCT FILTER
+========================================================= */
+
+const filterButtons =
+    document.querySelectorAll(".filter");
+
+const productCards =
+    document.querySelectorAll(".product-card");
+
+
+filterButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+
+        /* Remove active class */
+
+        filterButtons.forEach(function (btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+        /* Add active class */
+
+        button.classList.add("active");
+
+
+        /* Get selected category */
+
+        const selectedCategory =
+            button.getAttribute("data-filter");
+
+
+        /* Filter products */
+
+        productCards.forEach(function (card) {
+
+            const productCategory =
+                card.getAttribute("data-category");
+
+
+            if (
+                selectedCategory === "all" ||
+                selectedCategory === productCategory
+            ) {
+
+                card.classList.remove("hide");
+
+            } else {
+
+                card.classList.add("hide");
+
+            }
+
+        });
+
+    });
+
 });
 
-themeToggle.addEventListener("click", () => {
-	document.documentElement.classList.toggle("light-mode");
-	themeToggle.textContent = document.documentElement.classList.contains("light-mode") ? "☼" : "◐";
-});
 
-document.addEventListener("keydown", (event) => {
-	if (/^[0-9]$/.test(event.key)) inputNumber(event.key);
-	else if (event.key === ".") inputDecimal();
-	else if (event.key === "Enter" || event.key === "=") equals();
-	else if (event.key === "Escape") reset();
-	else if (event.key === "Backspace") backspace();
-	else if (event.key === "%") percent();
-	else if (["+", "-", "*", "/"].includes(event.key)) {
-		const operation = { "+": "add", "-": "subtract", "*": "multiply", "/": "divide" }[event.key];
-		chooseOperation(operation);
-	} else return;
-	event.preventDefault();
-});
+/* =========================================================
+   CURRENT YEAR
+========================================================= */
 
-updateDisplay();
+const year =
+    document.getElementById("year");
+
+year.textContent =
+    new Date().getFullYear();
+
+
+/* =========================================================
+   SIMPLE SCROLL EFFECT
+========================================================= */
+
+window.addEventListener("scroll", function () {
+
+    const header =
+        document.querySelector(".header");
+
+    if (window.scrollY > 50) {
+
+        header.style.boxShadow =
+            "0 10px 30px rgba(0,0,0,0.25)";
+
+    } else {
+
+        header.style.boxShadow = "none";
+
+    }
+
+});

@@ -1,77 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Kelly Delicious Meals - Order delicious Nigerian meals and drinks online.">
+    <meta name="description"
+        content="Pentecost Global Service - Dealers in iPhone, Samsung phones and accessories in Onitsha Main Market.">
 
-    <meta name="author" content="Kelly Delicious Meals">
-
-    <title>Kelly Delicious Meals | Food Delivery</title>
+    <title>Pentecost Global Service | Phones & Accessories</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-	<main class="app-shell">
-		<section class="calculator" aria-label="Calculator">
-			<header class="calculator-header">
-				<div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
-				<div>
-					<p class="eyebrow">ORBIT</p>
-					<h1>Calculator</h1>
-				</div>
-				<button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
-			</header>
 
-			<div class="display-wrap">
-				<p class="display-expression" id="expression" aria-live="polite">Ready when you are</p>
-				<output class="display-value" id="display" aria-live="polite">0</output>
-			</div>
+    <!-- ================= NAVBAR ================= -->
 
-			<div class="toolbar" aria-label="Calculator tools">
-				<button class="tool-button" type="button" data-action="clear-history">Clear history</button>
-				<span class="memory-label">Memory <strong id="memory-state">0</strong></span>
-			</div>
-			<div class="currency-tools" aria-label="Currency sign selection">
-				<span>Sign</span>
-				<button class="currency-button is-active" type="button" data-currency="none">---</button>
-				<button class="currency-button" type="button" data-currency="USD">$</button>
-				<button class="currency-button" type="button" data-currency="EUR">€</button>
-				<button class="currency-button" type="button" data-currency="GBP">£</button>
-				<button class="currency-button" type="button" data-currency="JPY">¥</button>
-			</div>
+    <header class="header">
 
-			<div class="keypad" aria-label="Calculator keypad">
-				<button class="key key-function" type="button" data-action="clear">AC</button>
-				<button class="key key-function" type="button" data-action="backspace" aria-label="Delete last digit">⌫</button>
-				<button class="key key-function" type="button" data-action="percent">%</button>
-				<button class="key key-operator" type="button" data-operation="divide" aria-label="Divide">/</button>
+        <div class="container navbar">
 
-				<button class="key" type="button" data-number="7">7</button>
-				<button class="key" type="button" data-number="8">8</button>
-				<button class="key" type="button" data-number="9">9</button>
-				<button class="key key-operator" type="button" data-operation="multiply" aria-label="Multiply">×</button>
+            <a href="#home" class="logo">
 
-				<button class="key" type="button" data-number="4">4</button>
-				<button class="key" type="button" data-number="5">5</button>
-				<button class="key" type="button" data-number="6">6</button>
-				<button class="key key-operator" type="button" data-operation="subtract" aria-label="Subtract">−</button>
+                <div class="logo-icon">
+                    PG
+                </div>
 
-				<button class="key" type="button" data-number="1">1</button>
-				<button class="key" type="button" data-number="2">2</button>
-				<button class="key" type="button" data-number="3">3</button>
-				<button class="key key-operator" type="button" data-operation="add" aria-label="Add">+</button>
+                <div class="logo-text">
+                    <strong>PENTECOST</strong>
+                    <span>GLOBAL SERVICE</span>
+                </div>
 
-				<button class="key key-zero" type="button" data-number="0">0</button>
-				<button class="key" type="button" data-action="decimal">.</button>
-				<button class="key key-equals" type="button" data-action="equals" aria-label="Equals">=</button>
-			</div>
+            </a>
 
-			<ol class="history" id="history" aria-label="Calculation history"></ol>
-			<p class="keyboard-hint"><span>⌨</span> Keyboard supported</p>
-		</section>
-	</main>
-	<script src="script.js"></script>
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <nav class="nav-menu" id="navMenu">
+
+                <a href="#home">Home</a>
+                <a href="#phones">Phones</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+
+            </nav>
+
+            <a href="tel:09069739190" class="nav-button">
+                Call Now
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="container hero-container">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    PENTECOST GLOBAL SERVICE
+                </span>
+
+                <h1>
+                    Premium Phones.
+                    <br>
+                    <span>Trusted Service.</span>
+                </h1>
+
+                <p>
+                    Dealers on all types of phones and accessories,
+                    specializing in iPhone, Samsung and other quality
+                    mobile devices.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#phones" class="btn btn-primary">
+                        Explore Phones
+                    </a>
+
+                    <a
+                        href="https://wa.me/2349069739190"
+                        target="_blank"
+                        class="btn btn-secondary">
+
+                        WhatsApp Us
+
+                    </a>
+
+                </div>
+
+                <div class="hero-details">
+
+                    <div>
+                        <span>📍</span>
+                        Onitsha Main Market
+                    </div>
+
+                    <div>
+                        <span>☎</span>
+                        09069739190
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PHONE DISPLAY -->
+
+            <div class="hero-visual">
+
+                <div class="glow"></div>
+
+                <div class="phone">
+
+                    <div class="phone-screen">
+
+                        <div class="dynamic-island"></div>
+
+                        <div class="phone-text">
+
+                            <small>
+                                PREMIUM DEVICES
+                            </small>
+
+                            <h2>
+                                iPhone
+                                <br>
+                                & Samsung
+                            </h2>
+
+                            <p>
+                                Quality phones available
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="floating-card iphone-card">
+                    iPhone
+                </div>
+
+                <div class="floating-card samsung-card">
+                    Samsung
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PHONES ================= -->
+
+    <section class="phones section" id="phones">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="eyebrow">
+                        OUR COLLECTION
+                    </span>
+
+                    <h2>
+                        Featured Phones
+                    </h2>
+
+                </div>
+
+                <p>
+                    Browse our phone categories and contact us
+                    for current models, colours, storage options
+                    and prices.
+                </p>
+
+            </div>
+
+
+            <!-- FILTER -->
+
+            <div class="filters">
+
+                <button
+                    class="filter active"
+                    data-filter="all">
+
+                    All
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="iphone">
+
+                    iPhone
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="samsung">
+
+                    Samsung
+
+                </button>
+
+                <button
+                    class="filter"
+                    data-filter="accessories">
+
+                    Accessories
+
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCTS -->
+
+            <div class="products">
+
+
+                <!-- IPHONE -->
+
+                <div
+                    class="product-card"
+                    data-category="iphone">
+
+                    <div class="product-image iphone">
+
+                        <span></span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>APPLE</small>
+
+                        <h3>
+                            iPhone Series
+                        </h3>
+
+                        <p>
+                            Premium iPhone devices available
+                            in different models and storage options.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20am%20interested%20in%20an%20iPhone."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAMSUNG -->
+
+                <div
+                    class="product-card"
+                    data-category="samsung">
+
+                    <div class="product-image samsung">
+
+                        <span>S</span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>SAMSUNG</small>
+
+                        <h3>
+                            Samsung Galaxy
+                        </h3>
+
+                        <p>
+                            Samsung Galaxy smartphones for
+                            work, entertainment and everyday use.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20am%20interested%20in%20a%20Samsung%20phone."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- IPHONE PRO -->
+
+                <div
+                    class="product-card"
+                    data-category="iphone">
+
+                    <div class="product-image iphone-pro">
+
+                        <span>PRO</span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>PREMIUM</small>
+
+                        <h3>
+                            iPhone Pro
+                        </h3>
+
+                        <p>
+                            Premium iPhone Pro models with
+                            advanced features.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20want%20to%20ask%20about%20iPhone%20Pro."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SAMSUNG GALAXY -->
+
+                <div
+                    class="product-card"
+                    data-category="samsung">
+
+                    <div class="product-image galaxy">
+
+                        <span>
+                            GALAXY
+                        </span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>SAMSUNG</small>
+
+                        <h3>
+                            Galaxy Series
+                        </h3>
+
+                        <p>
+                            Galaxy smartphones available
+                            across different price ranges.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20want%20to%20ask%20about%20Samsung%20Galaxy."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CHARGERS -->
+
+                <div
+                    class="product-card"
+                    data-category="accessories">
+
+                    <div class="product-image charger">
+
+                        <span>
+                            ⚡
+                        </span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>ACCESSORIES</small>
+
+                        <h3>
+                            Chargers & Cables
+                        </h3>
+
+                        <p>
+                            Quality charging cables and
+                            chargers for mobile devices.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20want%20to%20ask%20about%20chargers."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PHONE CASES -->
+
+                <div
+                    class="product-card"
+                    data-category="accessories">
+
+                    <div class="product-image cases">
+
+                        <span>
+                            CASE
+                        </span>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <small>ACCESSORIES</small>
+
+                        <h3>
+                            Phone Cases
+                        </h3>
+
+                        <p>
+                            Protective phone cases and useful
+                            accessories for different devices.
+                        </p>
+
+                        <a
+                            href="https://wa.me/2349069739190?text=Hello%20Pentecost%20Global%20Service%2C%20I%20want%20to%20ask%20about%20phone%20cases."
+                            target="_blank">
+
+                            Enquire →
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services section" id="services">
+
+        <div class="container">
+
+            <div class="center-heading">
+
+                <span class="eyebrow">
+                    OUR SERVICES
+                </span>
+
+                <h2>
+                    What We Offer
+                </h2>
+
+                <p>
+                    Professional phone sales and accessories
+                    for customers looking for quality devices.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <span class="service-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Phone Sales
+                    </h3>
+
+                    <p>
+                        We deal in iPhone, Samsung and
+                        other popular smartphone brands.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <span class="service-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Phone Accessories
+                    </h3>
+
+                    <p>
+                        Get chargers, cables, phone cases
+                        and other mobile accessories.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <span class="service-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Customer Enquiries
+                    </h3>
+
+                    <p>
+                        Contact us to check availability,
+                        models and current prices.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about section" id="about">
+
+        <div class="container about-grid">
+
+            <div class="business-logo">
+
+                <strong>
+                    PG
+                </strong>
+
+                <small>
+                    PENTECOST
+                </small>
+
+                <span>
+                    GLOBAL SERVICE
+                </span>
+
+            </div>
+
+
+            <div class="about-text">
+
+                <span class="eyebrow">
+                    ABOUT US
+                </span>
+
+                <h2>
+                    Pentecost Global Service
+                </h2>
+
+                <p>
+                    Pentecost Global Service is a phone dealership
+                    located at Ejison Plaza, Onitsha Main Market.
+                </p>
+
+                <p>
+                    We deal in all types of phones and accessories,
+                    with a major focus on iPhone and Samsung devices.
+                </p>
+
+                <p>
+                    Contact us directly for current phone models,
+                    available colours, storage options and prices.
+                </p>
+
+                <a href="#contact" class="learn-more">
+                    Contact Us →
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact section" id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <div class="contact-intro">
+
+                    <span class="eyebrow">
+                        CONTACT US
+                    </span>
+
+                    <h2>
+                        Get Your Next Phone
+                    </h2>
+
+                    <p>
+                        Call or message Pentecost Global Service
+                        for phones, accessories and enquiries.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-details">
+
+
+                    <!-- PHONE -->
+
+                    <a
+                        href="tel:09069739190"
+                        class="contact-item">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+
+                            <small>
+                                PHONE
+                            </small>
+
+                            <strong>
+                                09069739190
+                            </strong>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- EMAIL -->
+
+                    <a
+                        href="mailto:Populardivine2000@gmail.com"
+                        class="contact-item">
+
+                        <div class="contact-icon">
+                            ✉
+                        </div>
+
+                        <div>
+
+                            <small>
+                                EMAIL
+                            </small>
+
+                            <strong>
+                                Populardivine2000@gmail.com
+                            </strong>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+                        <div>
+
+                            <small>
+                                ADDRESS
+                            </small>
+
+                            <strong>
+                                Shop A64, Ejison Plaza,
+                                New Market Road,
+                                Onitsha Main Market
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <strong>
+                    PENTECOST GLOBAL SERVICE
+                </strong>
+
+                <span>
+                    Phones • Accessories • Service
+                </span>
+
+            </div>
+
+            <p>
+                © <span id="year"></span>
+                Pentecost Global Service.
+                All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= WHATSAPP ================= -->
+
+    <a
+        href="https://wa.me/2349069739190"
+        target="_blank"
+        class="whatsapp-button">
+
+        ☏
+
+    </a>
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
