@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#111316">
+	<title>Orbit Calculator</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="app-shell">
+		<section class="calculator" aria-label="Calculator">
+			<header class="calculator-header">
+				<div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div>
+					<p class="eyebrow">ORBIT</p>
+					<h1>Calculator</h1>
+				</div>
+				<button class="icon-button" id="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+			</header>
+
+			<div class="display-wrap">
+				<p class="display-expression" id="expression" aria-live="polite">Ready when you are</p>
+				<output class="display-value" id="display" aria-live="polite">0</output>
+			</div>
+
+			<div class="toolbar" aria-label="Calculator tools">
+				<button class="tool-button" type="button" data-action="clear-history">Clear history</button>
+				<span class="memory-label">Memory <strong id="memory-state">0</strong></span>
+			</div>
+			<div class="currency-tools" aria-label="Currency sign selection">
+				<span>Sign</span>
+				<button class="currency-button is-active" type="button" data-currency="none">---</button>
+				<button class="currency-button" type="button" data-currency="USD">$</button>
+				<button class="currency-button" type="button" data-currency="EUR">€</button>
+				<button class="currency-button" type="button" data-currency="GBP">£</button>
+				<button class="currency-button" type="button" data-currency="JPY">¥</button>
+			</div>
+
+			<div class="keypad" aria-label="Calculator keypad">
+				<button class="key key-function" type="button" data-action="clear">AC</button>
+				<button class="key key-function" type="button" data-action="backspace" aria-label="Delete last digit">⌫</button>
+				<button class="key key-function" type="button" data-action="percent">%</button>
+				<button class="key key-operator" type="button" data-operation="divide" aria-label="Divide">/</button>
+
+				<button class="key" type="button" data-number="7">7</button>
+				<button class="key" type="button" data-number="8">8</button>
+				<button class="key" type="button" data-number="9">9</button>
+				<button class="key key-operator" type="button" data-operation="multiply" aria-label="Multiply">×</button>
+
+				<button class="key" type="button" data-number="4">4</button>
+				<button class="key" type="button" data-number="5">5</button>
+				<button class="key" type="button" data-number="6">6</button>
+				<button class="key key-operator" type="button" data-operation="subtract" aria-label="Subtract">−</button>
+
+				<button class="key" type="button" data-number="1">1</button>
+				<button class="key" type="button" data-number="2">2</button>
+				<button class="key" type="button" data-number="3">3</button>
+				<button class="key key-operator" type="button" data-operation="add" aria-label="Add">+</button>
+
+				<button class="key key-zero" type="button" data-number="0">0</button>
+				<button class="key" type="button" data-action="decimal">.</button>
+				<button class="key key-equals" type="button" data-action="equals" aria-label="Equals">=</button>
+			</div>
+
+			<ol class="history" id="history" aria-label="Calculation history"></ol>
+			<p class="keyboard-hint"><span>⌨</span> Keyboard supported</p>
+		</section>
+	</main>
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+:root {
+	color-scheme: dark;
+	--bg: #111316;
+	--surface: #1b1e22;
+	--surface-raised: #22262b;
+	--display: #151719;
+	--key: #262a2f;
+	--key-hover: #30353b;
+	--text: #f2f1ec;
+	--muted: #92989e;
+	--line: rgba(255, 255, 255, 0.08);
+	--accent: #d4f36a;
+	--accent-deep: #b6d84e;
+	--shadow: 0 28px 70px rgba(0, 0, 0, 0.38);
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	min-width: 320px;
+	min-height: 100vh;
+	color: var(--text);
+	background: var(--bg);
+	font-family: "Manrope", sans-serif;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0.45;
+	background-image: linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+	background-size: 44px 44px;
+}
+
+button { font: inherit; }
+
+.app-shell {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	padding: 30px 18px;
+}
+
+.calculator {
+	width: min(100%, 420px);
+	padding: 27px;
+	border: 1px solid var(--line);
+	border-radius: 26px;
+	background: linear-gradient(145deg, #202428, var(--surface) 55%);
+	box-shadow: var(--shadow);
+}
+
+.calculator-header, .toolbar { display: flex; align-items: center; }
+.calculator-header { gap: 11px; margin-bottom: 25px; }
+.brand-mark { display: flex; align-items: end; gap: 3px; height: 23px; margin-right: 2px; }
+.brand-mark span { width: 4px; border-radius: 2px; background: var(--accent); }
+.brand-mark span:nth-child(1) { height: 10px; opacity: .62; }
+.brand-mark span:nth-child(2) { height: 17px; opacity: .8; }
+.brand-mark span:nth-child(3) { height: 23px; }
+.eyebrow { margin: 0 0 1px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: .2em; }
+h1 { margin: 0; font-size: 17px; letter-spacing: -.03em; }
+.icon-button { margin-left: auto; width: 35px; height: 35px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: transparent; cursor: pointer; transition: .2s ease; }
+.icon-button:hover { color: var(--text); border-color: rgba(255,255,255,.2); }
+
+.display-wrap { min-height: 154px; padding: 20px 19px 17px; display: flex; flex-direction: column; justify-content: end; border: 1px solid var(--line); border-radius: 17px; background: var(--display); overflow: hidden; }
+.display-expression { min-height: 18px; margin: 0 0 8px; color: var(--muted); font-family: "DM Mono", monospace; font-size: 12px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.display-value { display: block; max-width: 100%; color: var(--text); font-family: "DM Mono", monospace; font-size: clamp(36px, 10vw, 52px); font-weight: 500; letter-spacing: -.08em; line-height: 1; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.toolbar { justify-content: space-between; height: 47px; color: var(--muted); font-size: 11px; }
+.tool-button { padding: 0; border: 0; color: var(--muted); background: none; cursor: pointer; font-size: 11px; }
+.tool-button:hover { color: var(--text); }
+.memory-label { font-family: "DM Mono", monospace; }
+.memory-label strong { margin-left: 4px; color: var(--accent); font-weight: 500; }
+.currency-tools { display: flex; align-items: center; gap: 6px; margin: 0 0 14px; color: var(--muted); font-size: 10px; }
+.currency-tools > span { margin-right: 3px; text-transform: uppercase; letter-spacing: .08em; }
+.currency-button { min-width: 31px; height: 27px; padding: 0 7px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); background: transparent; cursor: pointer; font-family: "DM Mono", monospace; font-size: 12px; transition: .15s ease; }
+.currency-button:hover, .currency-button.is-active { color: var(--accent); border-color: rgba(212,243,106,.5); background: rgba(212,243,106,.08); }
+
+.keypad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.key { min-height: 58px; border: 1px solid transparent; border-radius: 14px; color: var(--text); background: var(--key); box-shadow: inset 0 1px rgba(255,255,255,.025); cursor: pointer; font-family: "DM Mono", monospace; font-size: 19px; transition: transform .12s ease, background .15s ease, border-color .15s ease; }
+.key:hover { border-color: rgba(255,255,255,.1); background: var(--key-hover); }
+.key:active { transform: scale(.95); }
+.key:focus-visible, .icon-button:focus-visible, .tool-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.key-function { color: var(--muted); font-size: 16px; }
+.key-operator { color: var(--accent); background: rgba(212,243,106,.1); font-size: 24px; }
+.key-operator:hover { background: rgba(212,243,106,.18); }
+.key-equals { color: #161912; background: var(--accent); font-size: 25px; font-weight: 500; }
+.key-equals:hover { background: var(--accent-deep); }
+.key-zero { grid-column: span 2; text-align: left; padding-left: 24px; }
+
+.history { display: flex; flex-direction: column; gap: 7px; max-height: 132px; margin: 18px 0 0; padding: 0; overflow: auto; list-style: none; }
+.history:empty { display: none; }
+.history-item { display: flex; justify-content: space-between; gap: 10px; padding: 9px 11px; border-left: 2px solid var(--accent); color: var(--muted); background: rgba(255,255,255,.035); font-family: "DM Mono", monospace; font-size: 11px; }
+.history-item strong { color: var(--text); font-weight: 500; }
+.keyboard-hint { margin: 18px 0 0; color: #656b71; font-size: 10px; text-align: center; }
+.keyboard-hint span { margin-right: 5px; }
+
+@media (max-width: 430px) {
+	.app-shell { padding: 14px 10px; }
+	.calculator { padding: 20px 15px; border-radius: 22px; }
+	.keypad { gap: 8px; }
+	.key { min-height: 57px; }
+}
